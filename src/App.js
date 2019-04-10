@@ -1,28 +1,37 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer } from "react";
+import "./style/App.css";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+import Form from "./components/Form.jsx";
+import List from "./components/List.jsx";
+import Filter from "./components/Filter";
+import Reducer, {
+  init,
+  INPUT,
+  POST,
+  SELECT,
+  CHECK,
+  DELETE
+} from "./reducer/App";
 
-export default App;
+export default () => {
+  const [state, dispatch] = useReducer(Reducer, init());
+
+  const inputEvent = e => dispatch({ type: INPUT, str: e.target.value });
+  const enterEvent = e => (e.keyCode === 13 ? dispatch({ type: POST }) : null);
+  const filterEvent = type => () => dispatch({ type: SELECT, filter: type });
+  const checkEvent = i => () => dispatch({ type: CHECK, id: i });
+  const deleteEvent = i => () => dispatch({ type: DELETE, id: i });
+
+  return (
+    <div className="App">
+      <Form onChange={inputEvent} onEnter={enterEvent} value={state.input} />
+      <Filter onClick={filterEvent} filterType={state.filter} />
+      <List
+        checkEvent={checkEvent}
+        deleteEvent={deleteEvent}
+        tasks={state.tasks}
+        filterType={state.filter}
+      />
+    </div>
+  );
+};

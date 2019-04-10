@@ -1,0 +1,25 @@
+.Checkbox {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.1s ease;
+}
+
+.Checkbox:hover {
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.check {
+  position: relative;
+  background: rgb(76.1%, 100%, 72.6%);
+}
+
+.check::before {
+  content: "✓";
+  font-size: 24px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}

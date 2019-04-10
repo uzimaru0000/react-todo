@@ -1,0 +1,10 @@
+.Item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Item > span {
+  padding: 16px;
+  font-size: 32px;
+}
