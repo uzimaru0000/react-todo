@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Item from "./Item";
 import "../style/List.css";
 import { PROGRESS, NONE, DONE } from "../reducer/App";
 
+const isDisable = type => isDone => {
+  switch (type) {
+    case NONE:
+      return true;
+    case DONE:
+      return isDone;
+    case PROGRESS:
+      return !isDone;
+    default:
+      return true;
+  }
+};
+
 export default ({ tasks, filterType, checkEvent, deleteEvent }) => {
-  const isDisable = type => isDone => {
-    switch (type) {
-      case NONE:
-        return true;
-      case DONE:
-        return isDone;
-      case PROGRESS:
-        return !isDone;
-      default:
-        return true;
-    }
-  };
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <ul className="List">

@@ -13,8 +13,13 @@ import Reducer, {
   DELETE
 } from "./reducer/App";
 
+const getInitState = () => {
+  const tasks = localStorage.getItem("tasks");
+  return tasks ? JSON.parse(tasks) : [];
+};
+
 export default () => {
-  const [state, dispatch] = useReducer(Reducer, init());
+  const [state, dispatch] = useReducer(Reducer, init(getInitState()));
 
   const inputEvent = e => dispatch({ type: INPUT, str: e.target.value });
   const enterEvent = e => (e.keyCode === 13 ? dispatch({ type: POST }) : null);
