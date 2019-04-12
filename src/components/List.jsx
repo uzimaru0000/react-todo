@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Item from "./Item";
 import "../style/List.css";
 import { PROGRESS, NONE, DONE } from "../reducer/App";
@@ -17,12 +17,8 @@ const isDisable = type => isDone => {
 };
 
 export default ({ tasks, filterType, checkEvent, deleteEvent }) => {
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
   return (
-    <ul className="List">
+    <div className="List">
       {tasks
         ? tasks
             .filter(x => isDisable(filterType)(x.isDone))
@@ -36,6 +32,6 @@ export default ({ tasks, filterType, checkEvent, deleteEvent }) => {
               />
             ))
         : null}
-    </ul>
+    </div>
   );
 };

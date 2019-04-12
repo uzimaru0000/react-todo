@@ -3,12 +3,9 @@ import "../style/Checkbox.css";
 
 export default props => {
   return (
-    <div
-      onClick={e => {
-        e.stopPropagation();
-        props.onClick();
-      }}
-      className={"Checkbox " + (props.isCheck ? "check" : "")}
-    />
+    <label className="Checkbox">
+      <input type="checkbox" onChange={props.onClick} checked={props.isCheck} />
+      <span>{props.label}</span>
+    </label>
   );
 };

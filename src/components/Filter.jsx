@@ -1,5 +1,6 @@
 import React from "react";
 import { NONE, PROGRESS, DONE } from "../reducer/App";
+import "../style/Filter.css";
 
 export default ({ onClick, filterType }) => {
   const isDisable = btnType => ({ disabled: filterType === btnType });
@@ -7,13 +8,13 @@ export default ({ onClick, filterType }) => {
   return (
     <div className="Filter">
       <button onClick={onClick(NONE)} {...isDisable(NONE)}>
-        全部
+        All
       </button>
       <button onClick={onClick(DONE)} {...isDisable(DONE)}>
-        完了
+        Done
       </button>
       <button onClick={onClick(PROGRESS)} {...isDisable(PROGRESS)}>
-        未完了
+        Progress
       </button>
     </div>
   );

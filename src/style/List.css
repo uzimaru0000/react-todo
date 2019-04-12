@@ -1,6 +1,10 @@
 .List {
-  border: 1px solid black;
+  margin: 0;
   padding: 8px;
   width: 50vw;
   box-sizing: border-box;
+}
+
+.List > .Item:first-child {
+  border-top: 1px solid #c3c3c3;
 }

@@ -1,0 +1,26 @@
+.Filter {
+  padding: 16px;
+}
+
+.Filter button {
+  background: rgb(205, 255, 147);
+  width: 128px;
+  height: 42px;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  border-left: 1px solid #aaa;
+}
+
+.Filter button:first-child {
+  border-radius: 20px 0 0 20px;
+  border-left: none;
+}
+
+.Filter button:last-child {
+  border-radius: 0 20px 20px 0;
+}
+
+.Filter button:disabled {
+  background: rgb(226, 255, 193);
+}

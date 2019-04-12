@@ -10,17 +10,18 @@ export const NONE = "NONE";
 export const PROGRESS = "PROGRESS";
 export const DONE = "DONE";
 
-const Counter = () => {
-  let i = 0;
+const Counter = init => {
+  let i = init;
   return () => i++;
 };
 
 export const init = (tasks = [], input = "", filter = NONE) => {
+  const counter = Math.max(0, ...tasks.map(x => x.id + 1));
   return {
     tasks,
     input,
     filter,
-    idGenerator: new Counter()
+    idGenerator: new Counter(counter)
   };
 };
 

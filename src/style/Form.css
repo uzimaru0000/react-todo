@@ -3,4 +3,14 @@
   padding: 8px;
   font-size: 32px;
   box-sizing: border-box;
+  border-radius: 5px;
+  appearance: none;
+  outline: none;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.Form input:focus {
+  border-color: transparent;
+  box-shadow: 0 0 2px 2px var(--main-color);
 }

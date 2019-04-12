@@ -6,6 +6,7 @@ export default ({ value, onChange, onEnter }) => {
     <div className="Form">
       <input
         type="text"
+        placeholder="ToDo..."
         value={value}
         onChange={onChange}
         onKeyDown={onEnter}

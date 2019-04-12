@@ -1,0 +1,35 @@
+.DeleteButton {
+  position: relative;
+  margin-right: 16px;
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--danger-color);
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition: box-shadow 0.1s ease;
+}
+
+.DeleteButton:hover {
+  box-shadow: 0 0 2px 2px var(--danger-shadow);
+}
+
+.DeleteButton::before,
+.DeleteButton::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 1px;
+  height: 16px;
+  background: var(--danger-color);
+  top: 7.5px;
+  left: 13.5px;
+}
+
+.DeleteButton::before {
+  transform: rotate3d(0, 0, 1, 45deg);
+}
+
+.DeleteButton::after {
+  transform: rotate3d(0, 0, 1, -45deg);
+}

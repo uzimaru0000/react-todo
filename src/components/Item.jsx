@@ -1,20 +1,17 @@
 import React from "react";
 import "../style/Item.css";
 import Checkbox from "./Checkbox";
+import DeleteButton from "./DeleteButton";
 
 export default props => {
   return (
-    <li className="Item" onClick={props.onClick}>
-      <Checkbox onClick={props.onClick} isCheck={props.isCheck} />
-      <span>{props.name}</span>
-      <button
-        onClick={e => {
-          e.stopPropagation();
-          props.onDelete();
-        }}
-      >
-        X
-      </button>
-    </li>
+    <div className="Item">
+      <Checkbox
+        label={props.name}
+        onClick={props.onClick}
+        isCheck={props.isCheck}
+      />
+      <DeleteButton onClick={props.onDelete} />
+    </div>
   );
 };
